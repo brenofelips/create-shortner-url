@@ -29,7 +29,7 @@ public class Main implements RequestHandler<Map<String, Object>, Map<String, Str
         String originalUrl = bodyMap.get("originalUrl");
         String expirationTime = bodyMap.get("expirationTime");
         String shorUrlCode = UUID.randomUUID().toString().substring(0, 8);
-        long expirationTimeInSecond = Long.parseLong(expirationTime) * 3600;
+        long expirationTimeInSecond = Long.parseLong(expirationTime);
 
         UrlData urlData = new UrlData(originalUrl, expirationTimeInSecond);
 
@@ -48,5 +48,5 @@ public class Main implements RequestHandler<Map<String, Object>, Map<String, Str
         Map<String, String> response = new HashMap<>();
         response.put("codeId", shorUrlCode);
         return response;
-    } 
+    }
 }
